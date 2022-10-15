@@ -34,7 +34,10 @@ class ProductStore {
 
   searchProduct(keyword: string) {
     this.filteredPoducts = this.filteredPoducts.filter((item) => {
-      return item.category && item.category.toLowerCase().match(keyword);
+      return (
+        (item.category && item.category.toLowerCase().match(keyword)) ||
+        (item.productName && item.productName.toLowerCase().match(keyword))
+      );
     });
     if (this.filteredPoducts.length < 1) {
       this.currentProduct = {};
