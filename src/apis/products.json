@@ -53,7 +53,7 @@
 			"Projected",
 			"Section Views"
 		],
-		"category": "Daily Business",
+		"category": "Graphic Editors",
 		"manufacturerUrl": "https://www.autodesk.com",
 		"description": [
 			"AutoCAD® is computer-aided design (CAD) software that architects, engineers, and construction professionals rely on to create precise 2D and 3D drawings.",
@@ -107,7 +107,7 @@
 			"Zeroturnaround",
 			"Xrebel"
 		],
-		"category": "Developer",
+		"category": "Software Development",
 		"manufacturerUrl": "https://www.jrebel.com/products/jrebel",
 		"description": [
 			"JRebel is a productivity tool that allows developers to reload code changes instantly. It skips the rebuild, restart and redeploy cycle common in Java development. JRebel enables developers to get more done in the same amount of time and to stay in the flow while coding."
@@ -125,7 +125,7 @@
 			"Coding",
 			"Renewal"
 		],
-		"category": "Developer",
+		"category": "Software Development",
 		"manufacturerUrl": "https://www.jetbrains.com/phpstorm",
 		"description": [
 			"The editor actually 'gets' your code and deeply understands its structure, supporting all the PHP language features for modern and legacy projects. It provides the best code completion, refactoring, on-the-fly error prevention, and more."
@@ -144,7 +144,7 @@
 			"Code",
 			"Coding"
 		],
-		"category": "Developer",
+		"category": "Text Editors",
 		"manufacturerUrl": "https://www.jetbrains.com/resharper",
 		"description": [
 			"The Visual Studio Extension for .NET Developers.",
@@ -165,7 +165,7 @@
 			"Business Intelligence",
 			"Analytics"
 		],
-		"category": "Data Analytics",
+		"category": "Software Development",
 		"manufacturerUrl": "https://www.tableau.com/products/desktop",
 		"description": [
 			"Tableau is a powerful and fastest growing data visualization tool used in the Business Intelligence Industry. It helps in simplifying raw data into the very easily understandable format. Data analysis is very fast with Tableau and the visualizations created are in the form of dashboards and worksheets."
@@ -185,6 +185,24 @@
 		"manufacturerUrl": "https://zoom.us/zoomrooms",
 		"description": [
 			"Zoom Rooms tackles the three biggest pain points of the conference room: Starting a meeting, booking a meeting, and sharing content."
+		],
+		"option1": null,
+		"option2": null
+	},
+	{
+		"productName": "JIRA",
+		"tags": [
+			"JIRA",
+			"Plan",
+			"Track",
+			"Release",
+			"Report",
+			"Automate"
+		],
+		"category": "Management Tools",
+		"manufacturerUrl": "https://www.atlassian.com/software/jira",
+		"description": [
+			"Jira is a proprietary issue tracking product developed by Atlassian that allows bug tracking and agile project management."
 		],
 		"option1": null,
 		"option2": null

@@ -1,18 +1,22 @@
-import products from "../apis/products.json";
-
-type Item = typeof products[0];
+import { observer } from "mobx-react";
+import store, { Product } from "../store/productStore";
 
 function SearchResults() {
+
+    const changeCurrentProduct = (product: Product) => {
+        store.setCurrentProduct(product);
+    }
+
     return (
         <div>
-            {products.map((item: Item, index: number) => {
+            {store.filteredPoducts.map((item: Product, index: number) => {
                 return (
-                    <div className="result-box" key={index}>
+                    <div className="result-box" key={index} onClick={() => changeCurrentProduct(item)}>
                         <div>
                             <div className="result-header">{item.productName}</div>
                             <div className="result-tags">
                                 {
-                                    item.tags.map((tag, index) => <div key={index} className="result-tag-bg"><div className="result-tag-item">{tag}</div></div>)
+                                    item.tags?.map((tag, index) => <div key={index} className="result-tag-bg"><div className="result-tag-item">{tag}</div></div>)
                                 }
                             </div>
                         </div>
@@ -26,4 +30,4 @@ function SearchResults() {
     )
 }
 
-export default SearchResults
+export default observer(SearchResults)

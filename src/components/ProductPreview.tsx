@@ -1,7 +1,8 @@
-import products from "../apis/products.json";
+import { observer } from "mobx-react";
+import store from "../store/productStore";
 
 function ProductPreview() {
-    const item = products[0];
+    const item = store.currentProduct;
     return (
         <div>
             <section className='prod-header'>Product Details</section>
@@ -9,16 +10,24 @@ function ProductPreview() {
                 <div className="prod-name">{item.productName}</div>
                 <div className="result-tags">
                     {
-                        item.tags.map((tag, index) => <div key={index} className="result-tag-bg"><div className="result-tag-item">{tag}</div></div>)
+                        item.tags?.map((tag: string, index: number) => <div key={index} className="result-tag-bg"><div className="result-tag-item">{tag}</div></div>)
                     }
                 </div>
                 <div className="prod-manf">
-                    <a href={item.manufacturerUrl}>
+                    <a href={item.manufacturerUrl} target="_blank" rel="noopener noreferrer">
                         <button className="primary-btn">Go to Manufacturer</button>
                     </a>
                 </div>
                 <div className="prod-desc">
-                    {item.description}
+                    {
+                        item.description?.map((desc: string, index: number) => {
+                            return (
+                                <div key={index}>
+                                    {desc}
+                                </div>
+                            )
+                        })
+                    }
                 </div>
                 <div className="options-col">
                     {
@@ -47,4 +56,4 @@ function ProductPreview() {
     )
 }
 
-export default ProductPreview
+export default observer(ProductPreview)

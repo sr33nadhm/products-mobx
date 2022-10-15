@@ -3,6 +3,8 @@ import { IconButton } from '@mui/material';
 import './App.css';
 import CustomTab from './components/CustomTab';
 import ProductPreview from './components/ProductPreview';
+import store from './store/productStore';
+import { observer } from "mobx-react";
 
 function App() {
 
@@ -15,7 +17,7 @@ function App() {
       <main className='page-main'>
         <CustomTab />
         {
-          true &&
+          store.filteredPoducts.length > 3 &&
           <div className="sticky-btn-row">
             <div className='go-up-btn'>
               <IconButton
@@ -31,7 +33,7 @@ function App() {
         }
       </main>
       {
-        true &&
+        (store.currentProduct.productName) &&
         <aside className='selected-product'>
           <ProductPreview />
         </aside>
@@ -40,4 +42,4 @@ function App() {
   );
 }
 
-export default App;
+export default observer(App);

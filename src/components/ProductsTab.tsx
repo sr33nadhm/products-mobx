@@ -1,5 +1,7 @@
+import { observer } from "mobx-react";
 import { useState } from "react";
 import searchIcon from "../assets/images/search.svg"
+import store from "../store/productStore";
 
 function ProductsTab() {
 
@@ -11,16 +13,38 @@ function ProductsTab() {
         { category: "Management Tools", id: 5, checked: false }
     ]);
 
-    const [keyword, setkeyword] = useState("");
+    const [keyword, setkeyword] = useState<string>("");
+
+    const [filters, setFilters] = useState<string[]>([]);
 
     const handleCheckBox = (index: number) => {
         let newCategories = [...categories];
-        newCategories[index].checked = !newCategories[index].checked;
+        let value = newCategories[index].checked;
+        newCategories[index].checked = !value;
         setCategories(newCategories);
+        var newFilters: string[] = [...filters];
+        if (value === true) {
+            // remove the filter from filters, already selected
+            newFilters = newFilters.filter(item => {
+                return newCategories[index].category !== item
+            })
+        }
+        else {
+            // add the filter to filters, not selected
+            newFilters.push(newCategories[index].category);
+        }
+        setFilters(newFilters);
+        store.filterProducts(newFilters);
     }
 
     const handleSearch = (input: string) => {
         setkeyword(input);
+        if (input.length >= 3) {
+            store.searchProduct(input.toLowerCase());
+        }
+        if (input.length < 1) {
+            store.filterProducts(filters);
+        }
     }
 
     return (
@@ -57,4 +81,4 @@ function ProductsTab() {
     )
 }
 
-export default ProductsTab
+export default observer(ProductsTab)
