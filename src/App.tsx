@@ -5,8 +5,14 @@ import CustomTab from './components/CustomTab';
 import ProductPreview from './components/ProductPreview';
 import store from './store/productStore';
 import { observer } from "mobx-react";
+import { useEffect } from 'react';
+import { fetchProducts } from './apis/productApi';
 
 function App() {
+
+  useEffect(() => {
+    fetchProducts().then(products => store.products = products);
+  }, [])
 
   return (
     <div className="container app-container">

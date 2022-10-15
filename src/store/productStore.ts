@@ -1,5 +1,4 @@
 import { makeAutoObservable } from "mobx";
-import allProducts from "../apis/products.json";
 
 export type Product = {
   productName?: string;
@@ -12,7 +11,7 @@ export type Product = {
 };
 
 class ProductStore {
-  products: Product[] = allProducts;
+  products: Product[] = [];
   currentProduct: Product = {};
   filteredPoducts: Product[] = [];
 
