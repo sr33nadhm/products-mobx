@@ -40,6 +40,18 @@ class ProductStore {
       this.currentProduct = {};
     }
   }
+
+  searchFromFullProducts(keyword: string) {
+    this.filteredPoducts = this.products.filter((item) => {
+      return (
+        (item.category && item.category.toLowerCase().match(keyword)) ||
+        (item.productName && item.productName.toLowerCase().match(keyword))
+      );
+    });
+    if (this.filteredPoducts.length < 1) {
+      this.currentProduct = {};
+    }
+  }
 }
 
 const store = new ProductStore();

@@ -40,7 +40,7 @@ function ProductsTab() {
     const handleSearch = (input: string) => {
         setkeyword(input);
         if (input.length >= 3) {
-            store.searchProduct(input.toLowerCase());
+            filters.length > 0 ? store.searchProduct(input.toLowerCase()) : store.searchFromFullProducts(input.toLowerCase());
         }
         if (input.length < 1) {
             store.filterProducts(filters);
