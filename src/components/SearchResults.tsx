@@ -8,10 +8,10 @@ function SearchResults() {
     }
 
     return (
-        <div>
+        <div data-testid="search-container">
             {store.filteredPoducts.map((item: Product, index: number) => {
                 return (
-                    <div className="result-box" key={index} onClick={() => changeCurrentProduct(item)}>
+                    <div data-testid="search-result" className="result-box" key={index} onClick={() => changeCurrentProduct(item)}>
                         <div>
                             <div className="result-header">{item.productName}</div>
                             <div className="result-tags">

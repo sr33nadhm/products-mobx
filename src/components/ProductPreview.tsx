@@ -32,7 +32,7 @@ function ProductPreview() {
                 <div className="options-col">
                     {
                         item.option1 !== null &&
-                        <div>
+                        <div data-testid="prod-option">
                             <div className="radio-inline">
                                 <input type="radio" id="option1" name="prod-option" value={item.option1} />
                                 <label className="option-label" htmlFor="option1">Option 1</label>
@@ -42,7 +42,7 @@ function ProductPreview() {
                     }
                     {
                         item.option2 !== null &&
-                        <div>
+                        <div data-testid="prod-option">
                             <div className="radio-inline">
                                 <input type="radio" id="option2" name="prod-option" value={item.option2} />
                                 <label className="option-label" htmlFor="option2">Option 2</label>

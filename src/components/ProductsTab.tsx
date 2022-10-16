@@ -54,7 +54,7 @@ function ProductsTab() {
                 {categories.map((item, index) => {
                     return (
                         <div className="form-check form-check-inline" key={item.id}>
-                            <input className="form-check-input" type="checkbox" id={String(item.id)} value={item.id} checked={item.checked} onChange={() => handleCheckBox(index)} />
+                            <input className="form-check-input" role="checkbox" type="checkbox" id={String(item.id)} value={item.id} checked={item.checked} onChange={() => handleCheckBox(index)} />
                             <label className="form-check-label category-label" htmlFor={String(item.id)}>{item.category}</label>
                         </div>
                     )
