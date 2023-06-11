@@ -55,6 +55,10 @@ class ProductStore {
     this.currentProduct = product;
   }
 
+  resetProducts() {
+    this.filteredPoducts = this.products;
+  }
+
   handleFilters(index: number) {
     let newCategories = [...this.categories];
     let value = newCategories[index].checked;
@@ -72,6 +76,9 @@ class ProductStore {
     }
     this.setFilters(newFilters);
     this.filterProducts(newFilters);
+    if (this.filters.length < 1 && this.keyword.length < 1) {
+      this.resetProducts();
+    }
   }
 
   filterProducts(filters: string[]) {
@@ -106,7 +113,7 @@ class ProductStore {
       this.currentProduct = {};
     }
     if (keyword.length < 1) {
-      this.filteredPoducts = this.products;
+      this.resetProducts();
     }
   }
 }

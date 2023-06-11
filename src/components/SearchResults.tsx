@@ -10,7 +10,7 @@ function SearchResults() {
     const clearFilters = () => {
         store.setFilters([]);
         store.setKeyword("");
-        store.searchFromFullProducts("");
+        store.resetProducts();
     }
 
     return (
