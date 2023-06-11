@@ -76,17 +76,18 @@ class ProductStore {
     }
     this.setFilters(newFilters);
     this.filterProducts(newFilters);
-    if (this.filters.length < 1 && this.keyword.length < 1) {
-      this.resetProducts();
-    }
+    this.setKeyword("");
   }
 
   filterProducts(filters: string[]) {
-    this.filteredPoducts = this.products.filter((item) => {
+    this.filteredPoducts = this.filteredPoducts.filter((item) => {
       return item.category && filters.includes(item.category);
     });
     if (this.filteredPoducts.length < 1) {
       this.currentProduct = {};
+    }
+    if (this.filters.length < 1 && this.keyword.length < 1) {
+      this.resetProducts();
     }
   }
 

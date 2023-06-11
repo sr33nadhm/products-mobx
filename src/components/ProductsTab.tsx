@@ -10,7 +10,7 @@ function ProductsTab() {
 
     const handleSearch = (input: string) => {
         store.setKeyword(input);
-        if (input.length >= 3) {
+        if (input.length >= 1) {
             store.filters.length > 0 ? store.searchProduct(input.toLowerCase()) : store.searchFromFullProducts(input.toLowerCase());
         }
         if (input.length < 1) {
@@ -42,7 +42,11 @@ function ProductsTab() {
                         type="text"
                         className="form-control br-none bg-transparent"
                         id="inlineFormInput"
-                        placeholder="Type here..."
+                        placeholder={
+                            store.categories.filter(category => category.checked).length > 0 ?
+                                "Search in" + store.categories.filter(category => category.checked).map((category) => " " + category.category) :
+                                "Search all tools"
+                        }
                         value={store.keyword}
                         onChange={(e) => handleSearch(e.target.value)}
                     />
