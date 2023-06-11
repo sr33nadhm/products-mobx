@@ -1,16 +1,16 @@
 {
   "files": {
     "main.css": "/products-mobx/static/css/main.0e6e3c2c.css",
-    "main.js": "/products-mobx/static/js/main.a5d87d0c.js",
+    "main.js": "/products-mobx/static/js/main.4cec19c9.js",
     "static/js/787.b86fee78.chunk.js": "/products-mobx/static/js/787.b86fee78.chunk.js",
     "index.html": "/products-mobx/index.html",
     "static/media/search.svg": "/products-mobx/static/media/search.39aa85e9e40b7004fbef2dbf5c5b28f3.svg",
     "main.0e6e3c2c.css.map": "/products-mobx/static/css/main.0e6e3c2c.css.map",
-    "main.a5d87d0c.js.map": "/products-mobx/static/js/main.a5d87d0c.js.map",
+    "main.4cec19c9.js.map": "/products-mobx/static/js/main.4cec19c9.js.map",
     "787.b86fee78.chunk.js.map": "/products-mobx/static/js/787.b86fee78.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.0e6e3c2c.css",
-    "static/js/main.a5d87d0c.js"
+    "static/js/main.4cec19c9.js"
   ]
 }
