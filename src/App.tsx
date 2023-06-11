@@ -11,7 +11,7 @@ import { fetchProducts } from './apis/productApi';
 function App() {
 
   useEffect(() => {
-    fetchProducts().then(products => store.products = products);
+    fetchProducts().then(products => { store.setProducts(products) });
   }, [])
 
   return (

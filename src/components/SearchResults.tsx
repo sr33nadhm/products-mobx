@@ -7,6 +7,12 @@ function SearchResults() {
         store.setCurrentProduct(product);
     }
 
+    const clearFilters = () => {
+        store.setFilters([]);
+        store.setKeyword("");
+        store.searchFromFullProducts("");
+    }
+
     return (
         <div data-testid="search-container">
             {store.filteredPoducts.map((item: Product, index: number) => {
@@ -26,6 +32,27 @@ function SearchResults() {
                     </div>
                 )
             })}
+            {
+                (store.filteredPoducts.length < 1) &&
+                <div data-testid="search-result" className="result-box">
+                    <div>
+                        <div className="result-header">Uh Oh!</div>
+                        <div className="result-tags">
+                            No results found for your query !
+                        </div>
+                    </div>
+                    <div className="result-category">
+                        <div className="result-tag-bg">
+                            <div
+                                className="result-tag-item"
+                                onClick={clearFilters}
+                            >
+                                Clear filters
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
         </div>
     )
 }

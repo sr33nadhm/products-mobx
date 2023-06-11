@@ -10,17 +10,68 @@ export type Product = {
   option2?: string | null;
 };
 
+export type Category = {
+  id: number;
+  checked: boolean;
+  category: string;
+};
+
 class ProductStore {
   products: Product[] = [];
   currentProduct: Product = {};
   filteredPoducts: Product[] = [];
+  categories: Category[] = [
+    { category: "Software Development", id: 1, checked: false },
+    { category: "Daily Business", id: 2, checked: false },
+    { category: "Graphic Editors", id: 3, checked: false },
+    { category: "Text Editors", id: 4, checked: false },
+    { category: "Management Tools", id: 5, checked: false },
+  ];
+  filters: string[] = [];
+  keyword: string = "";
 
   constructor() {
     makeAutoObservable(this);
   }
 
+  setKeyword(keyword: string) {
+    this.keyword = keyword;
+  }
+
+  setFilters(filters: string[]) {
+    this.filters = filters;
+  }
+
+  setCategories(categories: Category[]) {
+    this.categories = categories;
+  }
+
+  setProducts(products: Product[]) {
+    this.products = products;
+    this.filteredPoducts = products;
+  }
+
   setCurrentProduct(product: Product) {
     this.currentProduct = product;
+  }
+
+  handleFilters(index: number) {
+    let newCategories = [...this.categories];
+    let value = newCategories[index].checked;
+    newCategories[index].checked = !value;
+    this.setCategories(newCategories);
+    var newFilters: string[] = [...this.filters];
+    if (value === true) {
+      // remove the filter from filters, already selected
+      newFilters = newFilters.filter((item) => {
+        return newCategories[index].category !== item;
+      });
+    } else {
+      // add the filter to filters, not selected
+      newFilters.push(newCategories[index].category);
+    }
+    this.setFilters(newFilters);
+    this.filterProducts(newFilters);
   }
 
   filterProducts(filters: string[]) {
@@ -53,6 +104,9 @@ class ProductStore {
     });
     if (this.filteredPoducts.length < 1) {
       this.currentProduct = {};
+    }
+    if (keyword.length < 1) {
+      this.filteredPoducts = this.products;
     }
   }
 }

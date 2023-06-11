@@ -3,14 +3,14 @@ import products from "../../../public/products.json";
 
 describe("ProductStore", () => {
   it("initiates store properly", () => {
-    store.products = products;
+    store.setProducts(products);
     expect(store.products.length).toBe(11);
     expect(store.currentProduct).toStrictEqual({});
-    expect(store.filteredPoducts.length).toBe(0);
+    expect(store.filteredPoducts.length).toBe(11);
   });
 
   it("searches products properly", () => {
-    store.products = products;
+    store.setProducts(products);
     expect(store.products.length).toBe(11);
     store.searchFromFullProducts("jira");
     expect(store.filteredPoducts.length).toBe(1);
@@ -19,7 +19,7 @@ describe("ProductStore", () => {
   });
 
   it("filters products properly", () => {
-    store.products = products;
+    store.setProducts(products);
     expect(store.products.length).toBe(11);
     store.filterProducts(["Text Editors"]);
     expect(store.filteredPoducts.length).toBe(1);
@@ -28,7 +28,7 @@ describe("ProductStore", () => {
   });
 
   it("combines filter and search products properly", () => {
-    store.products = products;
+    store.setProducts(products);
     expect(store.products.length).toBe(11);
     store.filterProducts(["Daily Business"]);
     expect(store.filteredPoducts.length).toBe(5);
@@ -37,7 +37,7 @@ describe("ProductStore", () => {
   });
 
   it("clears current product when filters are cleared", () => {
-    store.products = products;
+    store.setProducts(products);
     expect(store.products.length).toBe(11);
     store.currentProduct = products[0];
     expect(store.currentProduct).toStrictEqual(products[0]);
